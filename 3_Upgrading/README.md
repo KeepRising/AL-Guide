@@ -3,7 +3,7 @@
 Improving your equipment is one of the main ways to strengthen your characters in Adventureland. Improving equipment increases the damage of weapons, the defensive values of armor and the amount of stats you get from said armor and accessories, which in turn will  improve your overall damage output (and survivability). You can look at all the levels of any item in the ingame guide or here: [online](https://adventure.land/docs/guide/all/items)
 
 Generally, weapons and armor are upgraded, while accessories are compounded. Both processes are based on chance: You roll a number between 0 and 100 and the improvement succeeds if you roll a number smaller than the current upgrade chance in percent. A success increases the item's level by one, while a failure **permanently** destroys the item. <br>
-You can upgrade your equipment at the red crafting table of the NPC `Cue` in town, right next the general shop. Similarly the blue crafting table is used for compounds, or you do it directly via code with the corresponding functions: [upgrade](https://adventure.land/docs/code/functions/upgrade) and ![compound](https://adventure.land/docs/code/functions/compound)
+You can upgrade your equipment at the red crafting table of the NPC `Cue` in town, right next the general shop. Similarly the blue crafting table is used for compounds, or you do it directly via code with the corresponding functions: [upgrade](https://adventure.land/docs/code/functions/upgrade) and [compound](https://adventure.land/docs/code/functions/compound)
 For upgrading only a single item and an upgradescroll is needed, while compounding requires three items of the same type and the same level as well as a compoundscroll. Note that a successful compound will still only give you one item of the next higher level. Both upgrade and compoundscrolls can be bought at the NPC `Lukas` in town, close to the crafting tables themselves. Which scroll you need depends on the grade (tier) of the item you want to upgrade: Grades range from basic (no grade mentioned in tool tip) to `high`,`rare` and eventually `legendary`. To upgrade/compound an item you will need an upgrade-/compoundscroll of at least the same grade as the item you want to upgrade. Legendary scrolls can be bought at another NPC, but those are really expensive and only needed in the lategame.
 
 ## Giving Stats to your Armor
@@ -15,14 +15,23 @@ Lukas furthermore sells stat-scrolls for all 3 main attributes: Strength, Dexter
 The minimum upgradechance of an item is defined by the item level and its rarity at level 0, irregardless of it's rarity at the current level. Similarly, there is also a maximum upgradechance at each level (and level 0 rarity) which can not be exceeded. Generally the minimum upgradechance will always decrease with the item level, making high level equipment harder and harder to get. However, there are a few options to improve your chances.
 
 ### Using a higher tier scroll
-Using a scroll of a higher tier than necessary for the current upgrade will improve the upgrade chance according to the following formula: <br>
-`upgrade_chance_increase = minimum_upgrade_chance * 0.2 + 0.01`<br>
+Using a scroll of a higher tier than necessary for the current upgrade will improve the upgrade chance according to the following formula:
+
+`upgrade_chance_increase = minimum_upgrade_chance * 0.2 + 0.01`
+
 Note that all chances here are expressed as numbers, not percentages. The formula for compound is slightly different:
-`compound_chance_increase = minimum_compound_chance * 1.1 + 0.001` <br>
+
+`compound_chance_increase = minimum_compound_chance * 1.1 + 0.001`
+
 This increase depends only on the minimum chances on the current level of the item, **not** the current chance. So it is independent of all other factors and will be the same regardless of other methods used to increase the chance before or after. You just can't exceed the maximum chance. There is no further increase of the chance when using scrolls of 2 or more tiers higher, so it is always enough to just simply use the next higher tier of scroll. Note that due to the prices of compound scrolls and the smaller increase in the compound chance compared to the upgrades it is very rarely really worth gold-wise to use a next higher tier cscroll for compounds, apart from really expensive items. Of course it can still be used to reduce the total number of needed items by investing more gold.
 
 ### Using an Offering
-There are currently three different offerings in the game: Primlings `offeringp`, Primodial Essences (or prim short) `offering` and Primodial Essence X (primX) `offeringx`. These can be used during an upgrade or compound to boost the upgradechance notably, but are permanently used up in the process. They are used by placing them into the open slot next to the scrolls when upgrading. Primlings cannot be bought from an NPC, but are dropped from different monsters in the world, most noteably Black Scorpions. They are the cheapest of the three, but also offer the smallest increase to the upgrade chances. Prims can be bought from `Garwyn` in town for 27.42m gold. PrimX are lategame items and need to be crafted and have a very expensive recipe.<br>
+There are currently three different offerings in the game: 
+- Primling `offeringp` 
+- Primodial Essence `offering`, prim for short
+- Primodial X `offeringx`, primX for short
+
+These can be used during an upgrade or compound to boost the upgradechance notably, but are permanently used up in the process. They are used by placing them into the open slot next to the scrolls when upgrading. Primlings cannot be bought from an NPC, but are dropped from different monsters in the world, most noteably Black Scorpions. They are the cheapest of the three, but also offer the smallest increase to the upgrade chances. Prims can be bought from `Garwyn` in town for 27.42m gold. PrimX are lategame items and need to be crafted and have a very expensive recipe.<br>
 Offerings will always significantly increase the upgrade chances, but the bonus you get is not constant. Offerings enhance other chance increasing effects, for example an offering will give you more benefit when used on an item with some failstack compared to using it on an item without failstack.
 
 ### Failstacking
